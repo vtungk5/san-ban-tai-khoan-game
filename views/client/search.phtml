@@ -1,0 +1,473 @@
+<?php
+include_once __DIR__ . '/layouts/head.phtml';
+include_once __DIR__ . '/layouts/navbar.phtml';
+include_once __DIR__ . '/layouts/sidebar.phtml';
+
+?>
+<div class="pt-[4rem] pb-[5rem] px-3 lg:px-[5rem]">
+    <div
+        id=" slider"
+        class="owl-carousel rounded-2xl mt-5 bg-white px-3 py-2 position-relative flex">
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                version="1.1"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="23"
+                height="23"
+                x="0"
+                y="0"
+                viewBox="0 0 52 52"
+                style="enable-background: new 0 0 512 512"
+                xml:space="preserve"
+                class="">
+                <g>
+                    <path
+                        d="M44.47 18.725H24.45c-3.05 0-5.53 2.49-5.53 5.54v20.01c0 3.05 2.48 5.54 5.53 5.54h20.02c3.05 0 5.53-2.49 5.53-5.54v-20.01c0-3.05-2.48-5.54-5.53-5.54zm-15.9 13.28c-2.01 0-3.64-1.63-3.64-3.63a3.64 3.64 0 0 1 3.64-3.64c2 0 3.63 1.63 3.63 3.64 0 2-1.63 3.63-3.63 3.63zm11.78 11.79c-2 0-3.63-1.63-3.63-3.63 0-2.01 1.63-3.64 3.63-3.64 2.01 0 3.63 1.63 3.63 3.64 0 2-1.62 3.63-3.63 3.63z"
+                        fill="currentColor"
+                        opacity="1"
+                        data-original="#000000"
+                        class=""></path>
+                    <path
+                        d="M24.45 16.725h8.63v-9.01c0-3.05-2.48-5.53-5.53-5.53H7.53C4.48 2.185 2 4.665 2 7.715v20.02c0 3.05 2.48 5.53 5.53 5.53h9.39v-9c0-4.16 3.38-7.54 7.53-7.54zm-1.01-8.53a3.63 3.63 0 1 1 0 7.26c-2.01 0-3.64-1.62-3.64-3.63 0-2 1.63-3.63 3.64-3.63zm-11.79 19.05c-2.01 0-3.64-1.62-3.64-3.63s1.63-3.63 3.64-3.63a3.63 3.63 0 1 1 0 7.26zm0-11.79c-2.01 0-3.64-1.62-3.64-3.63 0-2 1.63-3.63 3.64-3.63a3.63 3.63 0 1 1 0 7.26z"
+                        fill="currentColor"
+                        opacity="1"
+                        data-original="#000000"
+                        class=""></path>
+                </g>
+            </svg>
+            <span class="ml-2">ALL Games</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/free-fire.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Free Fire</span>
+        </a>
+        <a
+            href="#"
+            class="bg-[#46a8f9] rounded-lg h-[2.5rem] lg:h-[3rem] px-4 py-3 play-regular font-semibold text-[#fff] text-[15px] flex items-center">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/lien-quan.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Liên Quân</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/genshin-impact.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Genshin</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/pubg-mobile.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Pubg Mobile</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/honkai-star-rail.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Honkai</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/fifa-online.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">FiFa Online</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/dot-kich.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Đột Kích</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/toc-chien.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Tốc Chiến</span>
+        </a>
+        <a
+            href="#"
+            class="rounded-lg px-4 py-3 h-[2.5rem] lg:h-[3rem] play-regular font-semibold text-start text-[15px] flex items-center border border-dashed border-[#46a8f9] bg-[#e8f4ff]">
+            <img
+                src="https://cdn.trumacc.vn/cdn-cgi/image/width=100&quality=100&format=webp/public/categories/play-together.jpg"
+                width="11"
+                height="11"
+                class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+            <span class="ml-2">Play Together</span>
+        </a>
+    </div>
+    <div class="grid grid-cols-4 gap-4 mt-7">
+        <div class="col-span-4 lg:col-span-1">
+            <form method="GET" action="/search" class="bg-white shadow-md rounded-xl px-5 py-4">
+                <!-- Tìm kiếm -->
+                <div class="flex items-center justify-between py-2 play-regular">
+                    <label class="text-gray-600 font-medium">Tìm kiếm</label>
+                    <input
+                        type="text"
+                        name="q"
+                        placeholder="Skin, súng, reg"
+                        value="<?=$keywords;?>"
+                        class="w-2/3 p-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                </div>
+
+                <!-- Thông tin -->
+                <div class="flex items-center justify-between py-2 play-regular">
+                    <label class="text-gray-600 font-medium">Thông tin</label>
+                    <select
+                        name="info"
+                        class="w-2/3 p-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>Tất cả</option>
+                    </select>
+                </div>
+
+                <!-- Sắp xếp -->
+                <div class="flex items-center justify-between py-2 play-regular">
+                    <label class="text-gray-600 font-medium">Sắp xếp</label>
+                    <select
+                        name="sort"
+                        class="w-2/3 p-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>Mới nhất</option>
+                    </select>
+                </div>
+
+                <!-- Mức giá -->
+                <div class="flex items-center justify-between py-2 play-regular">
+                    <label class="text-gray-600 font-medium">Mức giá</label>
+                    <select
+                        name="price"
+                        class="w-2/3 p-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option>Tất cả</option>
+                    </select>
+                </div>
+
+                <!-- Nút Tìm kiếm -->
+                <div class="pt-4">
+                    <button
+                        class="w-full bg-blue-500 play-regular text-white py-2 rounded-lg focus:outline-none">
+                        Tìm kiếm
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-span-4 lg:col-span-3">
+            <div class="flex items-center w-full justify-between">
+                <div class="flex items-center">
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/128/16799/16799322.png"
+                        width="11"
+                        height="11"
+                        class="rounded-lg !w-[21px] !h-[21px] lg:!w-[32px] lg:!h-[32px]" />
+                    <div class="ml-2 font-semibold play-regular text-xl">
+                        Kết quả tìm kiếm của: <?=$keywords;?>
+                    </div>
+                </div>
+                
+            </div>
+            <div
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-5">
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white shadow-md rounded-xl overflow-hidden">
+                    <div class="relative">
+                        <img
+                            src="https://cdn.trumacc.vn/uploads/account/2024/07/3603d91bb15159060dd8e320a385f71a.jpg"
+                            alt="Product Image"
+                            class="w-full h-[160px]" />
+                        <div
+                            class="absolute top-2 left-2 bg-blue-500 text-white text-xs px-2 py-1 rounded">
+                            #LQ4217
+                        </div>
+                    </div>
+                    <div class="px-2 py-3">
+                        <div
+                            class="w-full border border-gray-300 rounded-lg overflow-hidden">
+                            <table class="w-full text-sm text-gray-600 play-regular">
+                                <tbody>
+                                    <tr>
+                                        <td class="px-4 py-2 font-semibold">Đăng nhập:</td>
+                                        <td class="px-4 py-2">Garena</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3 text-center">
+                            <button
+                                class="text-sm py-2 rounded-lg bg-blue-500 text-white play-regular w-full">
+                                <i class="fa-duotone fa-solid fa-circle-yen"></i> 120,000đ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full flex items-center justify-center mt-11">
+                <button
+                    class="bg-gray-200 h-[2.4rem] ml-2 md:flex hidden text-gray-400 items-center font-semibold px-5 rounded-md text-[15px] play-regular">
+                    Xem thêm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+include_once __DIR__ . '/layouts/footer.phtml';
+include_once __DIR__ . '/layouts/script.phtml';
+include_once __DIR__ . '/layouts/end.phtml';
+?>

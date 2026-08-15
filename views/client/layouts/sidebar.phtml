@@ -1,0 +1,74 @@
+<button
+    id="toggle-button"
+
+    class="fixed top-[50%] rounded-r-md z-10 flex items-center justify-center text-gray-600 text-lg left-0 h-[2.5rem] px-2 cursor-pointer bg-white shadow-3xl  border-r-2 border-y-2 border-gray-300 ">
+    <i class="fa-solid fa-chevron-right"></i>
+</button>
+<div id="sidebar" class="z-20 fixed h-full w-full bg-[#00112ba8] hidden">
+    <div id="sidebar-content" class="fixed top-0 left-[-27rem] h-full w-[20rem] bg-white text-gray-800 shadow-lg border-r">
+        <div class="p-6 border-b flex items-center justify-center">
+            <a href="/">
+                <img
+                    src="https://neilpubg.com/wp-content/uploads/2024/10/neilpubg.webp"
+                    alt="Logo"
+                    class="w-24" />
+            </a>
+        </div>
+
+        <ul class="mt-4 text-[16px] px-5 space-y-2">
+            <li>
+                <a
+                    href="/"
+                    class="relative flex items-center px-4 py-3 rounded-lg text-gray-700 hover:text-black hover:bg-gray-100 font-semibold transition"
+                    id="home-link">
+                    Trang chủ
+                    <span class="absolute right-4 h-2 w-2 bg-blue-500 rounded-full hidden active-indicator"></span>
+                </a>
+            </li>
+
+            <!-- Dịch vụ -->
+            <li>
+                <button
+                    class="flex items-center justify-between px-4 py-3 w-full text-gray-700 hover:text-black hover:bg-gray-100 font-semibold rounded-lg transition"
+                    id="services-toggle">
+                    Dịch vụ
+                    <span class="material-icons"><i class="fa-regular fa-angle-down"></i></span>
+                </button>
+                <ul
+                    id="services-menu"
+                    class="hidden mt-2 space-y-2 pl-6 border-l border-gray-300">
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-black">Liên Quân</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-black">Free Fire</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-black">Pubg Mobile</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-600 hover:text-black">Tốc chiến</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a
+                    href="/payment"
+                    class="relative flex items-center px-4 py-3 rounded-lg text-gray-700 hover:text-black hover:bg-gray-100 font-semibold transition">
+                    Nạp tiền
+                </a>
+            </li>
+
+
+            <!-- Hỗ trợ -->
+            <li>
+                <a
+                    href="/support"
+                    class="relative flex items-center px-4 py-3 rounded-lg text-gray-700 hover:text-black hover:bg-gray-100 font-semibold transition">
+                    Hỗ trợ
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

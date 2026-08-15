@@ -1,0 +1,68 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<!-- .app-main -->
+<main class="app-main">
+    <!-- .wrapper -->
+    <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+            <!-- .page-inner -->
+            <div class="page-inner">
+                <div class="page-section">
+                    <div class="card card-fluid">
+                        <h6 class="card-header">Sửa dịch vụ</h6>
+                        <!-- .card-body -->
+                        <div class="card-body">
+                            <form method="post" action="/api/admin/service/<?= $get->id; ?>/edit" data-ajax="">
+                                <div class="form-group mb-4">
+                                    <div class="mb-3 ">
+                                        <input type="file" id="logo" name="logo" class="" accept=".jpg,.jpeg,.png,.gif"
+                                            data-parsley-group="fieldset01" autocomplete="off">
+                                    </div>
+                                    <div class="form-label-group">
+                                        <input type="text" id="name" name="name" class="form-control placeholder-shown" value="<?= $get->name; ?>" autocomplete="off" data-parsley-group="fieldset01" required="">
+                                        <label for="name">Tên dịch vụ</label>
+                                    </div>
+                                    <div class="form-label-group mt-2">
+                                        <input type="text" value="<?= $get->path; ?>" id="path" name="path" class="form-control placeholder-shown" autocomplete="off" data-parsley-group="fieldset01" required="">
+                                        <label for="path">Đường dẫn dịch vụ</label>
+                                    </div>
+                                    <div class="form-label-group mt-2">
+                                        <select class="form-control" name="type">
+                                            <option value="game" <?= $get->type == "game" ? 'selected' : ""; ?>>Tài khoản game</option>
+                                            <option value="mxh" <?= $get->type == "mxh" ? 'selected' : ""; ?>>Tài khoản MXH</option>
+                                        </select>
+                                        <label for="type">Thể loại</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- .form-actions -->
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary ml-auto">
+                                        Cập nhập
+                                    </button>
+                                </div>
+                                <!-- /.form-actions -->
+                            </form>
+                            <!-- /form -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div><!-- /.page-inner -->
+        </div><!-- /.page -->
+    </div><!-- .app-footer -->
+
+    <!-- /.wrapper -->
+</main><!-- /.app-main -->
+
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

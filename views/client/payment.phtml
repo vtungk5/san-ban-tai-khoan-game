@@ -1,0 +1,359 @@
+<?php
+include_once __DIR__ . '/layouts/head.phtml';
+include_once __DIR__ . '/layouts/navbar.phtml';
+include_once __DIR__ . '/layouts/sidebar.phtml';
+
+?>
+<div class="pt-[4rem] pb-[5rem] px-3 lg:px-[5rem]">
+    <div class="grid grid-cols-6 gap-4 py-3 lg:py-11">
+        <div class="col-span-6 lg:col-span-1"></div>
+        <div class="col-span-6 lg:col-span-4">
+            <div
+                class="grid grid-cols-2 bg-white shadow-md pt-5 pb-8 rounded-xl mb-6">
+                <div class="col-span-2 lg:col-span-1 px-8">
+                    <div
+                        class="mb-3 font-semibold text-gray-600 text-lg play-regular flex justify-center">
+                        Nạp qua thẻ cào
+                    </div>
+                    <!-- Tabs -->
+                    <ul id="tabs" class="flex w-full my-6">
+                        <li class="w-full">
+                            <a
+                                href="#card"
+                                class="tab-link active w-full flex items-center justify-center py-2 bg-blue-500 text-white rounded-l-md">
+                                <i class="fa fa-plus-circle mr-1"></i> Nạp qua thẻ cào
+                            </a>
+                        </li>
+                        <li class="w-full">
+                            <a
+                                href="#bank"
+                                class="tab-link w-full py-2 flex items-center justify-center bg-gray-200 text-gray-700 rounded-r-md">
+                                <i class="fa fa-list mr-1"></i> Lịch sử nạp
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tab Content -->
+                    <div id="card" class="tab-content">
+                        <div>
+                            <!-- Form -->
+                            <form id="add_the_cao" action="/v1/api" method="POST">
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Nhà mạng :</label>
+                                    <select
+                                        name="telco"
+                                        class="mt-1 w-full py-3 border border-gray-300 rounded-md px-3 text-sm focus:outline-none">
+                                        <option value="VIETTEL">Thẻ VIETTEL ( 19% )</option>
+                                        <option value="VINAPHONE">Thẻ VINAPHONE ( 17% )</option>
+                                        <option value="MOBIFONE">Thẻ MOBIFONE ( 19% )</option>
+                                        <option value="GATE">Thẻ GATE ( 30% )</option>
+                                        <option value="ZING">Thẻ ZING ( 18% )</option>
+                                        <option value="VNMOBI">Thẻ VNMOBI ( 17% )</option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Mệnh giá :</label>
+                                    <select
+                                        name="amount"
+                                        class="mt-1 w-full py-3 border border-gray-300 rounded-md px-3 text-sm focus:outline-none">
+                                        <option value="10000">
+                                            10,000 VND - Chiết khấu 19%
+                                        </option>
+                                        <option value="20000">
+                                            20,000 VND - Chiết khấu 19%
+                                        </option>
+                                        <option value="30000">
+                                            30,000 VND - Chiết khấu 19%
+                                        </option>
+                                        <option value="50000">
+                                            50,000 VND - Chiết khấu 15%
+                                        </option>
+                                        <option value="100000">
+                                            100,000 VND - Chiết khấu 15%
+                                        </option>
+                                        <option value="200000">
+                                            200,000 VND - Chiết khấu 16%
+                                        </option>
+                                        <option value="300000">
+                                            300,000 VND - Chiết khấu 16%
+                                        </option>
+                                        <option value="500000">
+                                            500,000 VND - Chiết khấu 18%
+                                        </option>
+                                        <option value="1000000">
+                                            1,000,000 VND - Chiết khấu 20%
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Mã Serial :</label>
+                                    <input
+                                        type="text"
+                                        name="serial"
+                                        placeholder="Nhập mã Serial ở hàng đầu tiên của thẻ cào"
+                                        class="mt-1 w-full py-3 border border-gray-300 rounded-md px-3 text-sm focus:outline-none" />
+                                </div>
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 mb-2">Mã Thẻ :</label>
+                                    <input
+                                        type="text"
+                                        name="pin"
+                                        placeholder="Nhập mã thẻ cào sau lớp bạc mỏng"
+                                        class="mt-1 w-full py-3 border border-gray-300 rounded-md px-3 text-sm focus:outline-none" />
+                                </div>
+                                <input type="hidden" name="type" value="add-the-cao" />
+                                <button
+                                    type="submit"
+                                    class="w-full bg-blue-500 text-white py-2 play-regular px-4 rounded-md mt-4">
+                                    Gửi thẻ
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div id="bank" class="tab-content hidden">
+                        <div class="play-regular">
+                            <div class="relative overflow-x-auto">
+                                <div x-data="paginationData()">
+                                    <!-- Tìm kiếm -->
+                                    <input
+                                        type="text"
+                                        x-model="search"
+                                        class="border rounded p-2 w-full"
+                                        placeholder="Search..." />
+
+                                    <!-- Bảng hiển thị -->
+                                    <table
+                                        class="min-w-full mt-4 text-sm text-left text-gray-500">
+                                        <thead
+                                            class="text-xs text-gray-700 uppercase bg-gray-50">
+                                            <tr>
+                                                <th class="px-6 py-3">Name</th>
+                                                <th class="px-6 py-3">Amount</th>
+                                                <th class="px-6 py-3">Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <template
+                                                x-for="item in paginatedItems"
+                                                :key="item.id">
+                                                <tr class="bg-white border-b">
+                                                    <td class="px-6 py-4" x-text="item.name"></td>
+                                                    <td class="px-6 py-4" x-text="item.amount"></td>
+                                                    <td class="px-6 py-4" x-text="item.date"></td>
+                                                </tr>
+                                            </template>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- Phân trang -->
+                                    <div class="flex items-center justify-between mt-4">
+                                        <button
+                                            @click="prevPage"
+                                            class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+                                            :disabled="currentPage === 1">
+                                            Previous
+                                        </button>
+                                        <span
+                                            class="text-sm"
+                                            x-text="'Page ' + currentPage + ' of ' + totalPages"></span>
+                                        <button
+                                            @click="nextPage"
+                                            class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+                                            :disabled="currentPage === totalPages">
+                                            Next
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-2 lg:col-span-1 px-2 lg:mt-0 mt-8">
+                    <div
+                        class="mb-3 font-semibold text-gray-600 text-lg play-regular flex justify-center">
+                        Thanh toán qua chuyển khoản
+                    </div>
+
+                    <div
+                        class="w-full border border-gray-300 rounded-lg py-3 flex items-start overflow-hidden">
+                        <div class="flex items-center justify-center">
+                            <img
+                                src="https://api.vietqr.io/vcb/9986379490/0/TUNGSTORE%2016134/vietqr_net_2.jpg?amount=20000000&accountName=9986379490"
+                                width="300"
+                                height="300" />
+                        </div>
+                        <table class="w-full text-sm text-gray-600 play-regular">
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">CHỦ TÀI KHOẢN:</td>
+                                    <td class="px-4 py-2">Vuong Thanh Tung</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">NGÂN HÀNG:</td>
+                                    <td class="px-4 py-2">Vietcombank</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">CHI NHÁNH:</td>
+                                    <td class="px-4 py-2">HA NOI</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">Min nạp:</td>
+                                    <td class="px-4 py-2">10.000 đ</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">TRẠNG THÁI:</td>
+                                    <td class="px-4 py-2 text-green-500 font-semibold">
+                                        đang hoạt động
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div
+                        class="w-full border border-gray-300 rounded-lg mt-3 flex overflow-hidden">
+                        <table class="w-full text-sm text-gray-600 play-regular">
+                            <tbody>
+                                <tr>
+                                    <td class="px-4 py-2 font-semibold">
+                                        Nội dung chuyển khoản:
+                                    </td>
+                                    <td class="px-4 py-2">MD833</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div
+                        class="bg-red-50 border border-dashed border-red-300 text-red-600 p-4 rounded-md mt-5">
+                        <p>- Nạp thẻ mệnh giá càng cao thì chiết khấu càng thấp!</p>
+                        <p>
+                            - Tự động duyệt thẻ và cộng tiền từ 5 - 15 phút, đúng sẽ được
+                            cộng tiền và ngược lại!
+                        </p>
+                        <p>
+                            - Vui lòng chọn đúng mệnh giá thẻ và nhà mạng, sai có thể sẽ
+                            mất thẻ và không được cộng hoặc hoàn tiền!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-6 lg:col-span-1"></div>
+    </div>
+</div>
+<?php
+include_once __DIR__ . '/layouts/footer.phtml';
+include_once __DIR__ . '/layouts/script.phtml';
+?>
+<script>
+    $(document).ready(function() {
+        $(".tab-link").click(function(e) {
+            e.preventDefault();
+            $(".tab-link")
+                .removeClass("bg-blue-500 text-white")
+                .addClass("bg-gray-200 text-gray-700");
+            $(this)
+                .removeClass("bg-gray-200 text-gray-700")
+                .addClass("bg-blue-500 text-white");
+
+            const target = $(this).attr("href");
+            $(".tab-content").addClass("hidden");
+            $(target).removeClass("hidden");
+        });
+    });
+
+    function paginationData() {
+        return {
+            search: "",
+            currentPage: 1,
+            itemsPerPage: 5,
+            items: [{
+                    id: 1,
+                    name: "John Doe",
+                    amount: "$100",
+                    date: "2024-11-01"
+                },
+                {
+                    id: 2,
+                    name: "Jane Smith",
+                    amount: "$200",
+                    date: "2024-11-02"
+                },
+                {
+                    id: 3,
+                    name: "Alice",
+                    amount: "$150",
+                    date: "2024-11-03"
+                },
+                {
+                    id: 4,
+                    name: "Bob",
+                    amount: "$300",
+                    date: "2024-11-04"
+                },
+                {
+                    id: 5,
+                    name: "Charlie",
+                    amount: "$400",
+                    date: "2024-11-05"
+                },
+                {
+                    id: 6,
+                    name: "David",
+                    amount: "$250",
+                    date: "2024-11-06"
+                },
+                {
+                    id: 7,
+                    name: "Eve",
+                    amount: "$350",
+                    date: "2024-11-07"
+                },
+                {
+                    id: 8,
+                    name: "Frank",
+                    amount: "$500",
+                    date: "2024-11-08"
+                },
+                {
+                    id: 9,
+                    name: "Grace",
+                    amount: "$600",
+                    date: "2024-11-09"
+                },
+                {
+                    id: 10,
+                    name: "Hank",
+                    amount: "$700",
+                    date: "2024-11-10"
+                },
+            ],
+            get filteredItems() {
+                return this.items.filter((item) =>
+                    item.name.toLowerCase().includes(this.search.toLowerCase())
+                );
+            },
+            get totalPages() {
+                return Math.ceil(this.filteredItems.length / this.itemsPerPage);
+            },
+            get paginatedItems() {
+                const start = (this.currentPage - 1) * this.itemsPerPage;
+                const end = this.currentPage * this.itemsPerPage;
+                return this.filteredItems.slice(start, end);
+            },
+            prevPage() {
+                if (this.currentPage > 1) {
+                    this.currentPage--;
+                }
+            },
+            nextPage() {
+                if (this.currentPage < this.totalPages) {
+                    this.currentPage++;
+                }
+            },
+        };
+    }
+</script>
+
+<?php
+include_once __DIR__ . '/layouts/end.phtml';
+?>

@@ -1,0 +1,128 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<!-- .app-main -->
+<main class="app-main">
+    <!-- .wrapper -->
+    <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+            <!-- .page-inner -->
+            <div class="page-inner">
+                <div class="page-section">
+                    <div class="card card-fluid">
+                        <h6 class="card-header">Danh sách dịch vụ</h6>
+                        <!-- .card-body -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <!-- .table -->
+                                <table class="table table-hover text-center">
+                                    <!-- thead -->
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th class="text-center">STT</th>
+                                            <th class="text-center">Biểu tượng</th>
+                                            <th class="text-center">Tên dịch vụ</th>
+                                            <th class="text-center">Loại</th>
+                                            <th class="text-center">Đường dẫn</th>
+                                            <th class="text-center">Thực thi</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- /thead -->
+                                    <!-- tbody -->
+                                    <tbody>
+                                        <?php $i = 1;
+                                        foreach (App\Models\Service::list() as $get): ?>
+                                            <tr>
+                                                <td><?= $i++ ?></td>
+                                                <td><img src="<?= $get->logo ?>" alt="Free Fire Image" class="img-fluid rounded" style="width: 45px; height: 45px;"></td>
+                                                <td><?= $get->name ?></td>
+                                                <td><?= type_serive($get->type) ?></td>
+                                                <td><?= $get->path ?></td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a
+                                                            href="/admin/service/<?= $get->id ?>/edit"
+                                                            class="btn btn-sm btn-icon btn-secondary">
+                                                            <i class="fa fa-pencil-alt"></i>
+                                                            <span class="sr-only">Edit</span>
+                                                        </a>
+                                                        <form
+                                                            method="get"
+                                                            class="ml-3"
+                                                            action="/api/admin/service/<?= $get->id ?>/delete"
+                                                            data-ajax>
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-sm btn-icon btn-secondary">
+                                                                <i class="far fa-trash-alt"></i>
+                                                                <span class="sr-only">delete</span>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                    <!-- /tbody -->
+                                </table>
+                                <!-- /.table -->
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div><!-- /.page-inner -->
+        </div><!-- /.page -->
+    </div><!-- .app-footer -->
+
+    <!-- /.wrapper -->
+</main><!-- /.app-main -->
+
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+?>
+<script>
+    let table = new DataTable("table");
+    $('.show-control').on('change', function() {
+        var id = $(this).attr("data-id");
+
+        $.ajax({
+            url: `/api/admin/users/${id}/toggle-status`,
+            type: "GET",
+            success: function(response) {
+                if (!response) {
+                    noti("error", "Không thể nhận dữ liệu về từ API này.");
+                } else {
+                    noti(response.status, response.message);
+                }
+            },
+            error: function(request) {
+                var obj = JSON.parse(request.responseText);
+                if (!obj) {
+                    noti("error", "Không thể nhận dữ liệu về từ API này.");
+                } else {
+                    if (obj.redirect === undefined || !obj.redirect) {
+                        noti(obj.status, obj.message);
+                    } else {
+                        if (obj.status === "success") {
+                            setTimeout(() => {
+                                window.location.href = obj.redirect;
+                            }, 700);
+                        }
+                        noti(obj.status, obj.message);
+                    }
+                }
+            }
+        });
+    });
+</script>
+<?php
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

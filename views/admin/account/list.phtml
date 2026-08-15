@@ -1,0 +1,85 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<!-- .app-main -->
+<main class="app-main">
+    <!-- .wrapper -->
+    <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+            <!-- .page-inner -->
+            <div class="page-inner">
+                <div class="page-section">
+                    <div class="card card-fluid">
+                        <h6 class="card-header">Danh sách loại tài khoản</h6>
+                        <!-- .card-body -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <!-- .table -->
+                                <table class="table table-hover text-center">
+                                    <!-- thead -->
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th class="text-center">STT</th>
+                                            <th class="text-center">Tên loại tài khoản</th>
+                                            <th class="text-center">Thực thi</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- /thead -->
+                                    <!-- tbody -->
+                                    <tbody>
+                                        <?php $i = 1;
+                                        foreach (App\Models\Account::list() as $get): ?>
+                                            <tr>
+                                                <td><?= $i++ ?></td>
+                                                <td><?= $get->name ?></td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a
+                                                            href="/admin/account/<?= $get->id ?>/edit"
+                                                            class="btn btn-sm btn-icon btn-secondary">
+                                                            <i class="fa fa-pencil-alt"></i>
+                                                            <span class="sr-only">Edit</span>
+                                                        </a>
+                                                        <form
+                                                            method="get"
+                                                            class="ml-3"
+                                                            action="/api/admin/account/<?= $get->id ?>/delete"
+                                                            data-ajax>
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-sm btn-icon btn-secondary">
+                                                                <i class="far fa-trash-alt"></i>
+                                                                <span class="sr-only">delete</span>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                    <!-- /tbody -->
+                                </table>
+                                <!-- /.table -->
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div><!-- /.page-inner -->
+        </div><!-- /.page -->
+    </div><!-- .app-footer -->
+
+    <!-- /.wrapper -->
+</main><!-- /.app-main -->
+
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

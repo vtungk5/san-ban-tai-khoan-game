@@ -1,0 +1,69 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<!-- .app-main -->
+<main class="app-main">
+    <!-- .wrapper -->
+    <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+            <!-- .page-inner -->
+            <div class="page-inner">
+                <div class="page-section">
+                    <div class="card card-fluid">
+                        <h6 class="card-header">Sửa người dùng</h6>
+                        <!-- .card-body -->
+                        <div class="card-body">
+                            <form method="post" action="/api/admin/users/<?= $get->uid; ?>/edit" data-ajax="">
+                                <div class="form-group mb-4">
+                                    <div class="form-label-group">
+                                        <input type="text" id="fullname" name="fullname" class="form-control" value="<?= $get->fullname; ?>">
+                                        <label for="fullname">Họ và tên</label>
+                                    </div>
+                                    <div class="form-label-group mt-2">
+                                        <input type="text" id="money" name="money" class="form-control" value="<?= $get->money; ?>" autocomplete="off" data-parsley-group="fieldset01" required="">
+                                        <label for="money">Số dư</label>
+                                    </div>
+                                    <div class="form-label-group mt-2">
+                                        <input type="text" id="email" name="email" class="form-control" value="<?= $get->email; ?>" autocomplete="off" data-parsley-group="fieldset01" required="">
+                                        <label for="email">Địa chỉ email</label>
+                                    </div>
+                                    <div class="form-label-group mt-2">
+                                        <select class="form-control" name="level">
+                                            <option value="admin" <?= $get->level == "admin" ? 'selected': ""; ?>>Quản trị viên </option>
+                                            <option value="seller" <?= $get->level == "seller" ? 'selected': ""; ?>>Cộng tác viên</option>
+                                            <option value="member" <?= $get->level == "member" ? 'selected': ""; ?>>Khách hàng</option>
+                                        </select>
+                                        <label for="level">Cấp bậc</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- .form-actions -->
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary ml-auto">
+                                        Cập nhập
+                                    </button>
+                                </div>
+                                <!-- /.form-actions -->
+                            </form>
+                            <!-- /form -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div><!-- /.page-inner -->
+        </div><!-- /.page -->
+    </div><!-- .app-footer -->
+
+    <!-- /.wrapper -->
+</main><!-- /.app-main -->
+
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

@@ -1,0 +1,88 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<!-- .app-main -->
+<main class="app-main">
+    <!-- .wrapper -->
+    <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+            <!-- .page-inner -->
+            <div class="page-inner">
+                <div class="page-section">
+                    <div class="card card-fluid">
+                        <h6 class="card-header">Thêm sản phẩm</h6>
+                        <!-- .card-body -->
+                        <div class="card-body">
+                            <form method="post" action="/api/admin/service/add" data-ajax="">
+                                <div class="form-group mb-4">
+                                    <div class="mb-3 ">
+                                        <input type="file" id="logo" name="logo" class="" accept=".jpg,.jpeg,.png,.gif"
+                                            data-parsley-group="fieldset01" required autocomplete="off" multiple>
+                                    </div>
+                                    <div class="form-label-group mb-3">
+                                        <input type="text" id="name" name="name" class="form-control placeholder-shown" value="" autocomplete="off" data-parsley-group="fieldset01" required="">
+                                        <label for="name">Tiêu đề</label>
+                                    </div>
+                                    <div class="form-label-group mb-3">
+                                        <input type="number" id="price" price="price" class="form-control placeholder-shown" value="" autocomplete="off" data-parsley-group="fieldset01" required="">
+                                        <label for="price">Giá tiền</label>
+                                    </div>
+                                    <div class="form-label-group mb-3">
+                                        <input type="text" id="contact" name="contact" class="form-control placeholder-shown" value="" autocomplete="off" data-parsley-group="fieldset01" required="">
+                                        <label for="contact">Liên hệ ( URL FB,Zalo,Tele,... )</label>
+                                    </div>
+                                    <div class="form-label-group mb-3">
+                                        <select class="form-control" name="type">
+                                            <option value="game">Tài khoản game</option>
+                                            <option value="mxh">Tài khoản MXH</option>
+                                        </select>
+                                        <label for="type">Thể loại</label>
+                                    </div>
+                                    <div class="form-label-group mb-3">
+                                        <select class="form-control" name="service">
+                                            <?php foreach (App\Models\Service::list() as $get): ?>
+                                                <option value="<?= $get->id; ?>"><?= $get->name; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <label for="service">Dịch vụ</label>
+                                    </div>
+                                    <div class="form-label-group mb-3">
+                                        <select class="form-control" name="account">
+                                            <?php foreach (App\Models\Account::list() as $get): ?>
+                                                <option value="<?= $get->id; ?>"><?= $get->name; ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <label for="account">Loại tài khoản</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <!-- .form-actions -->
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary ml-auto">
+                                        Thêm ngay
+                                    </button>
+                                </div>
+                                <!-- /.form-actions -->
+                            </form>
+                            <!-- /form -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div><!-- /.page-inner -->
+        </div><!-- /.page -->
+    </div><!-- .app-footer -->
+
+    <!-- /.wrapper -->
+</main><!-- /.app-main -->
+
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

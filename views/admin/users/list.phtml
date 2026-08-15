@@ -1,0 +1,135 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<!-- .app-main -->
+<main class="app-main">
+    <!-- .wrapper -->
+    <div class="wrapper">
+        <!-- .page -->
+        <div class="page">
+            <!-- .page-inner -->
+            <div class="page-inner">
+                <div class="page-section">
+                    <div class="card card-fluid">
+                        <h6 class="card-header">Danh sách người dùng</h6>
+                        <!-- .card-body -->
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <!-- .table -->
+                                <table class="table table-hover text-center">
+                                    <!-- thead -->
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th class="text-center">Tài khoản</th>
+                                            <th class="text-center">Họ và tên</th>
+                                            <th class="text-center">Số dư hiện tại</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Cấp bậc</th>
+                                            <th class="text-center">Trạng thái</th>
+                                            <th class="text-center">Thực thi</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- /thead -->
+                                    <!-- tbody -->
+                                    <tbody>
+                                        <?php foreach ($list as $get): ?>
+                                            <tr>
+                                                <td>@<?=$get->username?></td>
+                                                <td><?=$get->fullname?></td>
+                                                <td><?=format_number2($get->money)?>đ</td>
+                                                <td><?=$get->email?></td>
+                                                <td><?=$get->level?></td>
+                                                <td>
+                                                    <label class="switcher-control show-control switcher-control-success" data-id="<?=$get->uid;?>" for="show_<?=$get->uid;?>">
+                                                        <input type="checkbox" id="show_<?=$get->uid;?>" class="switcher-input" <?=$get->status == "active" ? 'checked=""' : "" ?> />
+                                                        <span class="switcher-indicator"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex justify-content-center align-items-center">
+                                                        <a
+                                                            href="/admin/users/member/<?=$get->uid?>/edit"
+                                                            class="btn btn-sm btn-icon btn-secondary">
+                                                            <i class="fa fa-pencil-alt"></i>
+                                                            <span class="sr-only">Edit</span>
+                                                        </a>
+                                                        <form
+                                                            method="get"
+                                                            class="ml-3"
+                                                            action="/api/admin/users/<?=$get->uid?>/delete"
+                                                            data-ajax>
+                                                            <button
+                                                                type="submit"
+                                                                class="btn btn-sm btn-icon btn-secondary">
+                                                                <i class="far fa-trash-alt"></i>
+                                                                <span class="sr-only">delete</span>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </tbody>
+                                    <!-- /tbody -->
+                                </table>
+                                <!-- /.table -->
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+
+            </div><!-- /.page-inner -->
+        </div><!-- /.page -->
+    </div><!-- .app-footer -->
+
+    <!-- /.wrapper -->
+</main><!-- /.app-main -->
+
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+?>
+<script>
+  let table = new DataTable("table");
+  $('.show-control').on('change', function () {
+    var id = $(this).attr("data-id");
+
+    $.ajax({
+        url: `/api/admin/users/${id}/toggle-status`,
+        type: "GET",
+        success: function (response) {
+            if (!response) {
+                noti("error", "Không thể nhận dữ liệu về từ API này.");
+            } else {
+                noti(response.status, response.message);
+            }
+        },
+        error: function (request) {
+            var obj = JSON.parse(request.responseText);
+            if (!obj) {
+                noti("error", "Không thể nhận dữ liệu về từ API này.");
+            } else {
+                if (obj.redirect === undefined || !obj.redirect) {
+                    noti(obj.status, obj.message);
+                } else {
+                    if (obj.status === "success") {
+                        setTimeout(() => {
+                            window.location.href = obj.redirect;
+                        }, 700);
+                    }
+                    noti(obj.status, obj.message);
+                }
+            }
+        }
+    });
+});
+
+</script>
+<?php
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

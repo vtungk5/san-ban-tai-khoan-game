@@ -1,0 +1,96 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<div class="pt-[4rem] pb-9 px-3 ">
+    <div class="grid grid-cols-3 gap-4 py-5 lg:py-11">
+        <div class="col-span-3 lg:col-span-1"></div>
+        <div class="col-span-3 lg:col-span-1">
+            <div
+                class="card border-0 rounded-xl px-5 py-4 bg-white shadow-md max-w-sm mx-auto">
+                <div class="card-body">
+                    <!-- Tiêu đề -->
+                    <h5 class="text-lg font-semibold text-gray-800">Tạo tài khoản</h5>
+                    <!-- Form đăng nhập -->
+                    <form action="/api/register" method="POST" class="mt-4" data-ajax>
+                        <div class="mb-4">
+                            <label
+                                for="fullname"
+                                class="block mb-2 play-regular text-base font-medium text-gray-600">Họ và tên:</label>
+                            <input
+                                type="text"
+                                name="fullname"
+                                id="fullname"
+                                required
+                                class="w-full px-3 py-2 play-regular border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div class="mb-4">
+                            <label
+                                for="username"
+                                class="block mb-2 play-regular text-base font-medium text-gray-600">Tài khoản:</label>
+                            <input
+                                type="text"
+                                name="username"
+                                id="username"
+                                required
+                                class="w-full px-3 py-2 play-regular border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div class="mb-4">
+                            <label
+                                for="email"
+                                class="block mb-2 play-regular text-base font-medium text-gray-600">Địa chỉ email:</label>
+                            <input
+                                type="text"
+                                name="email"
+                                id="email"
+                                required
+                                class="w-full px-3 py-2 play-regular border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div class="mb-4">
+                            <label
+                                for="password"
+                                class="block mb-2 play-regular text-base font-medium text-gray-600">Mật khẩu:</label>
+                            <input
+                                type="password"
+                                name="password"
+                                id="password"
+                                required
+                                autocomplete="on"
+                                class="w-full px-3 play-regular py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <div class="mb-4">
+                            <label
+                                for="re_password"
+                                class="block mb-2 play-regular text-base font-medium text-gray-600">Nhập lại mật khẩu:</label>
+                            <input
+                                type="password"
+                                name="re_password"
+                                id="re_password"
+                                required
+                                autocomplete="on"
+                                class="w-full px-3 play-regular py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+                        <button
+                            type="submit"
+                            class="w-full py-2 text-base bg-blue-500 play-regular text-white rounded-lg uppercase transition">
+                            Tạo tài khoản
+                        </button>
+                    </form>
+                    <div class="flex justify-center items-center py-1">
+                        <a
+                            href="/login"
+                            class="text-blue-500 font-semibold text-center fw-bold d-block fs-14 mt-5">Đã có tài khoản? Đăng nhập ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-span-3 lg:col-span-1"></div>
+    </div>
+</div>
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

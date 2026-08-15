@@ -1,0 +1,147 @@
+<div class="w-full h-[4rem] z-10 fixed top-0 bg-white border-b" id="navbar">
+  <div class="px-3 lg:px-[5rem] flex h-full justify-between">
+    <div class="h-full flex">
+      <div class="h-full flex items-center play-bold font-bold text-[27px]">
+        <a href="/">
+          <img
+            src="https://neilpubg.com/wp-content/uploads/2024/10/neilpubg.webp"
+            width="100"
+            height="100" />
+        </a>
+      </div>
+      <ul class="hidden xl:flex text-[16px] ml-10">
+        <li>
+          <a
+            href="/"
+            class="relative font-semibold text-[#939393] hover:text-black play-regular h-full flex items-center">
+            Trang chủ
+          </a>
+        </li>
+        <li class="ml-7">
+          <div
+            class="relative font-semibold text-[#939393] hover:text-black play-regular h-full flex items-center group">
+            <span> Dịch vụ </span>
+            <div
+              class="px-5 w-max pt-3 pb-5 absolute top-[70px] shadow-lg bg-white rounded-md min-w-[23rem] before:absolute before:content-[''] before:top-[-30px] before:w-[80px] before:h-[3rem] before:left-[-5px] group-hover:block hidden hover:block">
+              <div class="grid grid-cols-2 gap-3">
+                <div class="">
+                  <div
+                    class="font-bold font-semibold text-[16px] text-black">
+                    Tài khoản game
+                  </div>
+                  <ul class="flex flex-col play-regular mt-1">
+                    <li>
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Liên Quân
+                      </a>
+                    </li>
+                    <li class="mt-1">
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Free Fire
+                      </a>
+                    </li>
+                    <li class="mt-1">
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Pubg Mobile
+                      </a>
+                    </li>
+                    <li class="mt-1">
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Tốc chiến
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="">
+                  <div
+                    class="font-bold font-semibold text-[16px] text-black">
+                    Tài khoản MXH
+                  </div>
+                  <ul class="flex flex-col play-regular mt-1">
+                    <li>
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Liên Quân
+                      </a>
+                    </li>
+                    <li class="mt-1">
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Free Fire
+                      </a>
+                    </li>
+                    <li class="mt-1">
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Pubg Mobile
+                      </a>
+                    </li>
+                    <li class="mt-1">
+                      <a href="#" class="text-[#a1a1a1] hover:text-black">
+                        Tốc chiến
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="ml-7">
+          <a
+            href="/payment"
+            class="relative font-semibold text-[#939393] hover:text-black play-regular h-full flex items-center">
+            Nạp tiền
+          </a>
+        </li>
+
+        <li class="ml-7">
+          <a
+            href="/support"
+            class="relative font-semibold text-[#939393] hover:text-black play-regular h-full flex items-center">
+            Hỗ trợ
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="flex items-center ml-2 lg:ml-0">
+      <form
+        method="GET"
+        action="/search"
+        class="flex flex-row items-center relative">
+        <input
+          type="text"
+          value=""
+          name="q"
+          placeholder="Tìm kiếm sản phẩm"
+          class="text-[15px] placeholder:text-gray-600 placeholder:text-[15px] xl:w-[13rem] w-[12rem] 2xl:w-[20rem] bg-[#0000] pl-3 pr-12 py-2 h-[2.7rem] placeholder:play-regular play-regular rounded-lg border outline-0" />
+        <div
+          class="px-1 py-2 h-[2.1rem] absolute right-0 flex items-center justify-center">
+          <button
+            class="font-semibold rounded-lg px-3 h-[2rem] text-sm text-gray-600 flex items-center justify-center">
+            <i class="fa-regular fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="flex h-full items-center">
+   
+      <?php if (Auth::check()): ?>
+       
+        <a href="/info/profile" class="flex items-center h-[2.7rem] px-3 border rounded-md play-regular">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBhARBxMRFRITFhcVFRgVERUSFRoZFhgWGBUTFRgYHSggGBolGxYVITEiJSkrLi4uFyIzODMsNygtLisBCgoKDg0OFRAQFS0dHR0rNy0tKy0tLS0tNy0tNy0rKzctKy0rKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAOEA4QMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABAUCAwYBB//EADMQAQACAQICBgkEAgMAAAAAAAABAgMEEQUhEjFBcbHBEyJRYYGRodHwFDI04ULxI3KC/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwD6YA0yAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAypS2S21I3kGL2ImZ2hMpw3NaPWmI+srHT6bHgr6kc+2e00xW4uH57/u2r39fyhvrwuNvWt8oWImriunhdey0/JhbheSI9S0T3xMLQNMUWXS58X76zt7Y5+DQ6RF1Ohx5o3ryt7Y8zTFKM8uK+G+2SOf5zhgqAAAAAAAAAAAAgAAAAAAvNDp4wYY3/dPOfsp9PXp56xPbMOgStQARQAAAAAGjWaeNRi27Y6pUcxMTtPY6NU8VxdDPFo/y8Y/IWJUEBWQAAAAAAAAAAAAAAAEnh8b6yvx8JXal4b/ADK/HwldJWoAIoAAAAAAh8Vp0tLv7JifLzTEbiO36O2/u8YBSANMAAAAAAAAAAoAAAAACTw7+ZX4+ErtR6CdtZTv8pXiVYAIoAAAAAApeJWtOrtEzyjbb5QulHrp31l+/wAoWJUcBUAAAAAAAAABAAAAAAG/Rxb9TWYieuOxetOjrFNLTo+yJ+fNuZagAKAAAAAAKHVxP6m3S3658V8i8SpFtJMz2bTHzWJYpQFZAAAAAAAAABQAAAAAF5w+/T0lfdy+SQruEZOVqz3+U+SxZaAAAAAAAAELit+jpto7Zj7+SaqeLZOlmisdkfWfyFhUEBWQAAAAAAAAAAAAAAAGzT5rYMsWqu9NmjUYYtEbe7rUCz4Rk5Wr8fKfJKsWICKAAAAAA06vP+nxb7b89vYpMl7Zck2t1yn8YvzrWPfPlHmrWolABAAAAAAAAAAAAAAAABu0ub0GeJ7Oqe6WkB0kTvHIQuFZLXwTFv8AGdo+yay0AAAAAjcQvamlno93zBV6zL6bUTMdXVHdDQDTIAAAAAAAAAAAIAAAAAAACrfhUbabvtPlCaj8Pp0NJXfv+c7pDLQAAAAj8QjpaO3wn5TCQ156ekwWiO2JgHPgNMgAgAAAAAAAAAKAAAAAAMqUnJeIr1zyKUte21ImZ9y10Oi9DPSyfu8P7CJlaxWsRHZyegy0AAAAAAoNVj9FqLR7+XdPU1LrW6SNRXevK0dX2lUZcd8VtskTE/nU1GawAAAAAAAAAAAEAAB7ETadq9adp+G3vzzco9nb/QuINaze21Y3n3J+n4ba3PPy90daww4ceGNscbePxlsTVxhixY8NdscRDMEUAAAAAAAAY5KUyV2vETDIBW6jhnbgn4T5Sr8mO2O22SJiXRMMmOmWu2SImF1Mc8LHUcNmOenn4T5SgXpaltrxtPvVMYgCAAAAAPY5zyB4l6bQ5M3O3Kv1nuhK0Wgim1s3OfZ2R95T01rGrBp8WCP+OPj2toIoAAAAAAAAAAAAAAAAwy4ceau2SN/zsZgKnU8Pvj54vWj6/wBoLpETWaKueN6crfSe9dTFMMrVtS0xblMMVZAAFlwvTxPr3/8APnKurE2tER28nQ46RjxxFeqI2StRkAigAAAAAAAAAAAAAAAAAAAAAIPE9PF8fTr1x1++FS6Tr63P58fos1q+yf8ASxK1gKjdpP5NP+0L4EqwARQAAAAAAAAAAAAAAAAAAAAABS8S/mW+HhALEqKAqP/Z" width="32" height="32" class="rounded-full" />
+          <div class="hidden lg:flex items-center ml-2 ">
+            <span><?=getLastName(Auth::user()->fullname)?></span>
+            (<font color="red"><?=format_number2(Auth::user()->money)?>đ</font>)
+          </div>
+      </a>
+      <?php else: ?>
+        <a href="/login"
+          class="md:bg-[#0000] text-nowrap bg-blue-500 flex h-[2.3rem] text-white items-center md:text-black font-semibold px-3 rounded-md text-[14px] play-regular ml-2">
+          Đăng nhập
+        </a>
+        <a href="/register"
+          class="bg-blue-500 h-[2.3rem] ml-2 md:flex hidden text-white items-center font-semibold px-3 rounded-md text-[14px] play-regular">
+          Tạo tài khoản
+        </a>
+      <?php endif; ?>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,279 @@
+<aside class="app-aside app-aside-expand-md app-aside-light">
+    <!-- .aside-content -->
+    <div class="aside-content">
+        <!-- .aside-header -->
+        <header class="aside-header d-block d-md-none">
+            <!-- .btn-account -->
+            <button class="btn-account" type="button" data-toggle="collapse" data-target="#dropdown-aside">
+                <span class="user-avatar user-avatar-lg">
+                    <img src="assets/images/avatars/profile.jpg" alt="" />
+                </span>
+                <span class="account-icon">
+                    <span class="fa fa-caret-down fa-lg"></span>
+                </span>
+                <span class="account-summary">
+                    <span class="account-name">Beni Arisandi</span>
+                    <span class="account-description">Marketing Manager</span>
+                </span>
+            </button>
+            <!-- /.btn-account -->
+            <!-- .dropdown-aside -->
+            <div id="dropdown-aside" class="dropdown-aside collapse">
+                <!-- dropdown-items -->
+                <div class="pb-3">
+                    <a class="dropdown-item" href="user-profile.html">
+                        <span class="dropdown-icon oi oi-person"></span>
+                        Profile
+                    </a>
+                    <a class="dropdown-item" href="auth-signin-v1.html">
+                        <span class="dropdown-icon oi oi-account-logout"></span>
+                        Logout
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Help Center</a>
+                    <a class="dropdown-item" href="#">Ask Forum</a>
+                    <a class="dropdown-item" href="#">Keyboard Shortcuts</a>
+                </div>
+                <!-- /dropdown-items -->
+            </div>
+            <!-- /.dropdown-aside -->
+        </header>
+        <!-- /.aside-header -->
+        <!-- .aside-menu -->
+        <div class="aside-menu overflow-hidden">
+            <!-- .stacked-menu -->
+            <nav id="stacked-menu" class="stacked-menu">
+                <!-- .menu -->
+                <ul class="menu">
+                    <!-- .menu-item -->
+                    <li class="menu-item">
+                        <a href="/admin/" class="menu-link">
+                            <span class="menu-icon fas fa-home"></span>
+                            <span class="menu-text">Bảng điều khiển</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/admin/setting" class="menu-link">
+                            <span class="menu-icon fas fa-home"></span>
+                            <span class="menu-text">Cấu hình site</span>
+                        </a>
+                    </li>
+                    <!-- /.menu-item -->
+                    <!-- .menu-item -->
+
+                    <li class="menu-item has-child">
+                        <a href="#" class="menu-link">
+                            <span class="menu-icon far fa-file"></span>
+                            <span class="menu-text">Sản phẩm</span>
+                        </a>
+                        <!-- child menu -->
+                        <ul class="menu">
+                            <li class="menu-item">
+                                <a href="/admin/product/list" class="menu-link">Tất cả</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/admin/product/add" class="menu-link">Thêm</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="menu-item has-child">
+                        <a href="#" class="menu-link">
+                            <span class="menu-icon oi oi-wrench"></span>
+                            <span class="menu-text">Nạp tiền</span>
+                        </a>
+                        <!-- child menu -->
+                        <ul class="menu">
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link">Ngân hàng</a>
+                                <!-- grand child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="/admin/account/users/list" class="menu-link">Tất cả</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/account/users/active" class="menu-link">
+                                            Thêm
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- /grand child menu -->
+                            </li>
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link">Gạch thẻ</a>
+                                <!-- grand child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="/admin/account/users/list" class="menu-link">Tất cả</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/account/users/active" class="menu-link">
+                                            Thêm
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- /grand child menu -->
+                            </li>
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link">Lịch sử nạp</a>
+                                <!-- grand child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="/admin/voucher/list" class="menu-link">
+                                            Ngân hàng
+                                        </a>
+                                    </li>
+                                    <li class="menu-item has-child">
+                                        <a href="#" class="menu-link">Gạch thẻ</a>
+                                        <!-- grand child menu -->
+                                        <ul class="menu">
+                                            <li class="menu-item">
+                                                <a href="/admin/account/users/list" class="menu-link">Tất cả</a>
+                                            </li>
+                                            <li class="menu-item">
+                                                <a href="/admin/account/users/active" class="menu-link">
+                                                    Chờ duyệt
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <!-- /grand child menu -->
+                                    </li>
+                                </ul>
+                                <!-- /grand child menu -->
+                            </li>
+                        </ul>
+                        <!-- /child menu -->
+                    </li>
+
+                    <li class="menu-item has-child">
+                        <a href="#" class="menu-link">
+                            <span class="menu-icon oi oi-person"></span>
+                            <span class="menu-text">Người dùng</span>
+                        </a>
+                        <!-- child menu -->
+                        <ul class="menu">
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link">Khách hàng</a>
+                                <!-- grand child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="/admin/users/member" class="menu-link">Tất cả</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/users/member/active" class="menu-link">
+                                            Hoạt động
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/users/member/lock" class="menu-link">
+                                            Bị khóa
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- /grand child menu -->
+                            </li>
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link">Cộng tác viên</a>
+                                <!-- grand child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="/admin/users/seller" class="menu-link">Tất cả</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/users/seller/active" class="menu-link">
+                                            Hoạt động
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/users/seller/lock" class="menu-link">
+                                            Bị khóa
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- /grand child menu -->
+                            </li>
+                            <li class="menu-item has-child">
+                                <a href="#" class="menu-link">Quản trị viên</a>
+                                <!-- grand child menu -->
+                                <ul class="menu">
+                                    <li class="menu-item">
+                                        <a href="/admin/users/admin" class="menu-link">Tất cả</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/users/admin/active" class="menu-link">
+                                            Hoạt động
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="/admin/users/admin/lock" class="menu-link">
+                                            Bị khóa
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- /grand child menu -->
+                            </li>
+                        </ul>
+                        <!-- /child menu -->
+                    </li>
+                    <!-- /.menu-item -->
+                    <!-- .menu-item -->
+                    <li class="menu-item has-child">
+                        <a href="#" class="menu-link">
+                            <span class="menu-icon far fa-file"></span>
+                            <span class="menu-text">Loại tài khoản</span>
+                        </a>
+                        <!-- child menu -->
+                        <ul class="menu">
+                            <li class="menu-item">
+                                <a href="/admin/account/list" class="menu-link">Tất cả</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/admin/account/add" class="menu-link">Thêm</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item has-child">
+                        <a href="#" class="menu-link">
+                            <span class="menu-icon oi oi-browser"></span>
+                            <span class="menu-text">Dịch vụ</span>
+                        </a>
+                        <!-- child menu -->
+                        <ul class="menu">
+                            <li class="menu-item">
+                                <a href="/admin/service/list" class="menu-link">Tất cả</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/admin/service/add" class="menu-link">
+                                    Thêm
+                                </a>
+                            </li>
+
+                        </ul>
+                        <!-- /child menu -->
+                    </li>
+                    <!-- /.menu-item -->
+                    <!-- .menu-item -->
+
+                    <!-- /.menu-item -->
+                    <!-- .menu-header -->
+
+                    <!-- /.menu-item -->
+                </ul>
+                <!-- /.menu -->
+            </nav>
+            <!-- /.stacked-menu -->
+        </div>
+        <!-- /.aside-menu -->
+        <!-- Skin changer -->
+        <footer class="aside-footer border-top p-2">
+            <button class="btn btn-light btn-block text-primary" data-toggle="skin">
+                <span class="d-compact-menu-none">Night mode</span>
+                <i class="fas fa-moon ml-1"></i>
+            </button>
+        </footer>
+        <!-- /Skin changer -->
+    </div>
+    <!-- /.aside-content -->
+</aside>
+<!-- /.app-aside -->

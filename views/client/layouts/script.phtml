@@ -1,0 +1,109 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/assets/js/main.min.js"></script>
+<script src="/assets/plugin/owlcarousel/owl.carousel.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Lấy đường dẫn hiện tại
+    const currentPath = window.location.pathname;
+
+    $("#sidebar ul li a").each(function() {
+      const link = $(this);
+      const href = link.attr("href");
+
+      if (href === currentPath || (href === "/" && currentPath === "/")) {
+        // Thêm class active
+        $(link).removeClass("text-black bg-gray-100");
+        link.addClass("text-black bg-gray-100");
+      }
+    });
+
+    $("#navbar ul li a").each(function() {
+      const link = $(this);
+      const href = link.attr("href");
+
+      if (href === currentPath || (href === "/" && currentPath === "/")) {
+        $(link).removeClass("text-[#939393]");
+        link.addClass("after:bg-blue-500 after:absolute after:content-[''] after:bottom-0 after:w-full after:h-[5px]");
+      }
+    });
+
+    $("#menu-info ul li a").each(function() {
+      const link = $(this);
+      const href = link.attr("href");
+      const listItem = link.closest("li"); // Lấy phần tử li chứa a
+
+      if (href === currentPath || (href === "/" && currentPath === "/")) {
+        listItem.removeClass("text-gray-500 hover:bg-gray-200 hover:text-gray-700");
+        listItem.addClass("bg-gray-200 text-gray-700");
+      }
+    });
+
+
+    // Hiển thị sidebar khi nhấn nút
+    $('#toggle-button').click(function() {
+      const sidebar = $('#sidebar');
+      const sidebarContent = $('#sidebar-content');
+
+      if (sidebar.is(':hidden')) {
+        sidebar.fadeIn(200); // Hiển thị toàn bộ sidebar
+        sidebarContent.animate({
+          left: '0'
+        }, 300); // Đẩy nội dung ra
+      }
+    });
+
+    // Đóng sidebar khi nhấn ngoài vùng sidebar-content
+    $('#sidebar').click(function(e) {
+      const sidebarContent = $('#sidebar-content');
+
+      // Kiểm tra nếu click không nằm trong sidebar-content
+      if (!$(e.target).closest('#sidebar-content').length) {
+        sidebarContent.animate({
+          left: '-27rem'
+        }, 300, function() {
+          $('#sidebar').fadeOut(200); // Ẩn toàn bộ sidebar sau khi nội dung đã trượt vào
+        });
+      }
+    });
+
+    $(".owl-carousel").owlCarousel({
+      startPosition: 0,
+      items: 2,
+      margin: 10,
+      dots: false,
+      responsive: {
+        700: {
+          margin: 25,
+          items: 4,
+        },
+        1200: {
+          margin: 25,
+          items: 6,
+        },
+        1500: {
+          margin: 25,
+          items: 7,
+        },
+      },
+    });
+    const swiper = new Swiper(".swiper-container", {
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+    });
+
+    $('#services-toggle').click(function() {
+      $('#services-menu').slideToggle(); // Slide toggle effect
+      $(this).find('.material-icons').toggleClass('rotate-180'); // Rotate icon
+    });
+
+
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>

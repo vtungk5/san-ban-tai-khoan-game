@@ -1,0 +1,33 @@
+<!-- BEGIN BASE JS -->
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/static/vendor/popper.js/umd/popper.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/javascript/theme.min.js"></script>
+<script src="/assets/js/main.min.js"></script>
+
+<script src="/static/vendor/stacked-menu/js/stacked-menu.min.js"></script>
+<script src="/static/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="/assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="/assets/vendor/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+<!-- END PLUGINS JS -->
+<script src="//cdn.datatables.net/2.1.5/js/dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        var currentUrl = window.location.pathname;
+
+        $('.menu-link').each(function() {
+            var link = $(this);
+            if (link.attr('href') === currentUrl) {
+                link.closest('.menu-item').addClass('has-active');
+
+                var parentMenu = link.closest('.menu-item').parents('.menu-item');
+                if (parentMenu.length) {
+                    parentMenu.addClass('has-open');
+                }
+            }
+        });
+    });
+</script>

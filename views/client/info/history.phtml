@@ -1,0 +1,174 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/navbar.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+
+?>
+<div class="pt-[4rem] pb-[5rem] px-3 lg:px-[5rem]">
+    <div class="lg:grid grid-cols-12 gap-5">
+        <div class="col-span-12 xl:col-span-3">
+            <?php include_once __DIR__ . '/menu.phtml'; ?>
+
+        </div>
+        <div class="col-span-12 xl:col-span-7">
+            <div class="play-regular bg-white py-4 px-5 rounded-lg mt-5">
+                <div class="font-semibold mb-3 text-lg text-gray-500">
+                    Lịch sử mua hàng
+                </div>
+                <div class="relative overflow-x-auto">
+                    <div x-data="paginationData()">
+                        <!-- Tìm kiếm -->
+                        <input
+                            type="text"
+                            x-model="search"
+                            class="border rounded p-2 w-full"
+                            placeholder="Search..." />
+
+                        <!-- Bảng hiển thị -->
+                        <table
+                            class="min-w-full mt-4 text-sm text-left text-gray-500">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50">
+                                <tr>
+                                    <th class="px-6 py-3">Name</th>
+                                    <th class="px-6 py-3">Amount</th>
+                                    <th class="px-6 py-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template
+                                    x-for="item in paginatedItems"
+                                    :key="item.id">
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4" x-text="item.name"></td>
+                                        <td class="px-6 py-4" x-text="item.amount"></td>
+                                        <td class="px-6 py-4" x-text="item.date"></td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+
+                        <!-- Phân trang -->
+                        <div class="flex items-center justify-between mt-4">
+                            <button
+                                @click="prevPage"
+                                class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+                                :disabled="currentPage === 1">
+                                Previous
+                            </button>
+                            <span
+                                class="text-sm"
+                                x-text="'Page ' + currentPage + ' of ' + totalPages"></span>
+                            <button
+                                @click="nextPage"
+                                class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+                                :disabled="currentPage === totalPages">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+include_once __DIR__ . '/../layouts/footer.phtml';
+include_once __DIR__ . '/../layouts/script.phtml';
+?>
+<script>
+    function paginationData() {
+        return {
+            search: "",
+            currentPage: 1,
+            itemsPerPage: 5,
+            items: [{
+                    id: 1,
+                    name: "John Doe",
+                    amount: "$100",
+                    date: "2024-11-01"
+                },
+                {
+                    id: 2,
+                    name: "Jane Smith",
+                    amount: "$200",
+                    date: "2024-11-02"
+                },
+                {
+                    id: 3,
+                    name: "Alice",
+                    amount: "$150",
+                    date: "2024-11-03"
+                },
+                {
+                    id: 4,
+                    name: "Bob",
+                    amount: "$300",
+                    date: "2024-11-04"
+                },
+                {
+                    id: 5,
+                    name: "Charlie",
+                    amount: "$400",
+                    date: "2024-11-05"
+                },
+                {
+                    id: 6,
+                    name: "David",
+                    amount: "$250",
+                    date: "2024-11-06"
+                },
+                {
+                    id: 7,
+                    name: "Eve",
+                    amount: "$350",
+                    date: "2024-11-07"
+                },
+                {
+                    id: 8,
+                    name: "Frank",
+                    amount: "$500",
+                    date: "2024-11-08"
+                },
+                {
+                    id: 9,
+                    name: "Grace",
+                    amount: "$600",
+                    date: "2024-11-09"
+                },
+                {
+                    id: 10,
+                    name: "Hank",
+                    amount: "$700",
+                    date: "2024-11-10"
+                },
+            ],
+            get filteredItems() {
+                return this.items.filter((item) =>
+                    item.name.toLowerCase().includes(this.search.toLowerCase())
+                );
+            },
+            get totalPages() {
+                return Math.ceil(this.filteredItems.length / this.itemsPerPage);
+            },
+            get paginatedItems() {
+                const start = (this.currentPage - 1) * this.itemsPerPage;
+                const end = this.currentPage * this.itemsPerPage;
+                return this.filteredItems.slice(start, end);
+            },
+            prevPage() {
+                if (this.currentPage > 1) {
+                    this.currentPage--;
+                }
+            },
+            nextPage() {
+                if (this.currentPage < this.totalPages) {
+                    this.currentPage++;
+                }
+            },
+        };
+    }
+</script>
+<?php
+include_once __DIR__ . '/../layouts/end.phtml';
+?>
